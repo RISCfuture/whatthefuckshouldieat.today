@@ -3,11 +3,11 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Tim Morgan -- Engineer -- @riscfuture
 
 # THANKS
 
-    <name>
+    storytime Slack
 
 # TECHNOLOGY COLOPHON
 
