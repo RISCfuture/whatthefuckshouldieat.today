@@ -1,0 +1,58 @@
+@import "base.css";
+
+body {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+    overflow: auto;
+    font-family: "Poetsen One", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--white);
+    background: var(--blue);
+}
+
+main {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 768px;
+    padding: 1rem;
+}
+
+h1 {
+    margin: 2rem 0;
+    font-size: xx-large;
+    text-align: center;
+}
+
+h2 {
+    margin: 2rem 0;
+    font-size: x-large;
+    text-align: center
+}
+
+p {
+    margin: 1rem 0;
+    font-family: "Noticia Text", serif;
+    font-size: large;
+    font-style: normal;
+    font-weight: 400;
+}
+
+p strong {
+    font-weight: 700;
+}
+
+p em {
+    font-style: italic;
+}
+
+a {
+    font-weight: 700;
+    color: var(--turqoise);
+    text-decoration: none;
+    border-bottom: 1px solid var(--turqoise);
+}
