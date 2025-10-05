@@ -17,5 +17,7 @@ const bugsnagVue = Bugsnag.getPlugin('vue')
 
 const app = createApp(App)
 app.use(createPinia())
-app.use(bugsnagVue)
+if (bugsnagVue) {
+  app.use(bugsnagVue)
+}
 app.mount('main')
