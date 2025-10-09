@@ -20,9 +20,7 @@
     "stylelint": "stylelint \"src/**/*.{vue,css,scss,sass}\""
   },
   "dependencies": {
-    "@bugsnag/browser-performance": "^3.0.0",
-    "@bugsnag/js": "^8.6.0",
-    "@bugsnag/plugin-vue": "^8.6.0",
+    "@sentry/vue": "^10.18.0",
     "date-fns": "^4.1.0",
     "lodash-es": "^4.17.21",
     "normalize.css": "^8.0.1",
