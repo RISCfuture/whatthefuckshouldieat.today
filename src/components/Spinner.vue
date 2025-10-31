@@ -9,7 +9,7 @@ defineProps<{ size: string }>()
 </script>
 
 <style scoped>
-@import 'src/assets/base.css';
+@import '@/assets/base.css';
 
 .spinner-container {
   display: flex;
