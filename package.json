@@ -15,9 +15,9 @@
     "type-check": "vue-tsc --build",
     "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
     "lint:eslint": "eslint . --fix",
-    "lint": "run-s lint:eslint lint:oxlint",
-    "format": "prettier --write src/",
-    "stylelint": "stylelint \"src/**/*.{vue,css,scss,sass}\""
+    "lint:stylelint": "stylelint \"src/**/*.{vue,css,scss,sass}\"",
+    "lint": "run-s 'lint:*'",
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "@sentry/vue": "^10.25.0",
