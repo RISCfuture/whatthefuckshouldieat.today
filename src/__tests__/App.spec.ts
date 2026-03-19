@@ -11,7 +11,7 @@ import {
   getDate,
   getDay,
   getMonth,
-  getWeekOfMonth
+  getWeekOfMonth,
 } from 'date-fns'
 
 const today = new Date()
@@ -21,7 +21,7 @@ const nextNextWeek = endOfWeek(addWeeks(today, 2))
 const mockHolidays: HolidayFile = {
   days: [
     [getMonth(today) + 1, getDate(today), 'pizza', 'National Pizza Day'],
-    [getMonth(nextMonth) + 1, getDate(nextMonth), 'not pizza', 'National Not Pizza Day']
+    [getMonth(nextMonth) + 1, getDate(nextMonth), 'not pizza', 'National Not Pizza Day'],
   ],
   monthDays: [
     [getMonth(today) + 1, getDay(today), getWeekOfMonth(today), 'hot dog', 'National Hot Dog Day'],
@@ -30,8 +30,8 @@ const mockHolidays: HolidayFile = {
       getDay(nextMonth),
       getWeekOfMonth(nextMonth),
       'not hot dog',
-      'National Not Hot Dog Day'
-    ]
+      'National Not Hot Dog Day',
+    ],
   ],
   ranges: [
     [
@@ -40,7 +40,7 @@ const mockHolidays: HolidayFile = {
       getMonth(nextWeek) + 1,
       getDate(nextWeek),
       'cookie',
-      'National Cookie Period'
+      'National Cookie Period',
     ],
     [
       getMonth(nextWeek) + 1,
@@ -48,36 +48,36 @@ const mockHolidays: HolidayFile = {
       getMonth(nextNextWeek) + 1,
       getDate(nextNextWeek),
       'not cookie',
-      'National Cookie Period'
-    ]
+      'National Cookie Period',
+    ],
   ],
   monthWeeks: [
     [getMonth(today) + 1, getWeekOfMonth(today), 'taco', 'National Taco Week'],
-    [getMonth(nextWeek) + 1, getWeekOfMonth(nextWeek), 'not taco', 'National Not Taco Week']
+    [getMonth(nextWeek) + 1, getWeekOfMonth(nextWeek), 'not taco', 'National Not Taco Week'],
   ],
   months: [
     [getMonth(today) + 1, 'stir fry', 'National Stir Fry Month'],
-    [getMonth(nextMonth) + 1, 'not stir fry', 'National Not Stir Fry Month']
-  ]
+    [getMonth(nextMonth) + 1, 'not stir fry', 'National Not Stir Fry Month'],
+  ],
 }
 
 global.fetch = vi.fn(() =>
   Promise.resolve({
-    json: () => Promise.resolve(mockHolidays)
-  })
+    json: () => Promise.resolve(mockHolidays),
+  }),
 ) as unknown as typeof fetch
 
 describe('App.vue', () => {
   it('loads foods and selects one at random', async () => {
     const pinia = createTestingPinia({
       createSpy: vi.fn,
-      stubActions: false
+      stubActions: false,
     })
 
     render(App, {
       global: {
-        plugins: [pinia]
-      }
+        plugins: [pinia],
+      },
     })
 
     // Should always find a food since mock data guarantees today's date has holidays

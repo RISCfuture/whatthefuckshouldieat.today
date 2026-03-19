@@ -51,7 +51,7 @@ const monthWeekdayHolidays = z.tuple([
   weekSchema,
   stringSchema,
   stringSchema,
-  optionalSchema
+  optionalSchema,
 ])
 const dayRangeHolidays = z.tuple([
   monthSchema,
@@ -60,7 +60,7 @@ const dayRangeHolidays = z.tuple([
   daySchema,
   stringSchema,
   stringSchema,
-  optionalSchema
+  optionalSchema,
 ])
 const weekHolidays = z.tuple([monthSchema, weekSchema, stringSchema, stringSchema, optionalSchema])
 const monthHolidays = z.tuple([monthSchema, stringSchema, stringSchema, optionalSchema])
@@ -70,7 +70,7 @@ export const holidayFileSchema = z.strictObject({
   monthDays: z.array(monthWeekdayHolidays),
   ranges: z.array(dayRangeHolidays),
   monthWeeks: z.array(weekHolidays),
-  months: z.array(monthHolidays)
+  months: z.array(monthHolidays),
 })
 
 export type HolidayFile = z.output<typeof holidayFileSchema>

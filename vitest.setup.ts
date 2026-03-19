@@ -12,6 +12,7 @@ class LocalStorageMock {
   }
 
   removeItem(key: string): void {
+    // eslint-disable-next-line @typescript-eslint/no-dynamic-delete -- localStorage API requires dynamic key deletion
     delete this.store[key]
   }
 
@@ -32,11 +33,11 @@ class LocalStorageMock {
 Object.defineProperty(global, 'localStorage', {
   value: new LocalStorageMock(),
   writable: true,
-  configurable: true
+  configurable: true,
 })
 
 Object.defineProperty(global, 'sessionStorage', {
   value: new LocalStorageMock(),
   writable: true,
-  configurable: true
+  configurable: true,
 })

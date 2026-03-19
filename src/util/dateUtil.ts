@@ -3,7 +3,7 @@ import type {
   DayRangeHoliday,
   MonthHoliday,
   MonthWeekdayHoliday,
-  WeekHoliday
+  WeekHoliday,
 } from '@/types.ts'
 import {
   endOfDay,
@@ -13,7 +13,7 @@ import {
   getWeekOfMonth,
   isWithinInterval,
   set,
-  startOfDay
+  startOfDay,
 } from 'date-fns'
 
 export function dayHolidayMatches(holiday: DayHoliday, date: Date): boolean {
@@ -32,14 +32,14 @@ export function dayRangeHolidayMatches(holiday: DayRangeHoliday, date: Date): bo
   const start = startOfDay(
     set(new Date(), {
       month: holiday.startMonth - 1,
-      date: holiday.startDay
-    })
+      date: holiday.startDay,
+    }),
   )
   const end = endOfDay(
     set(new Date(), {
       month: holiday.endMonth - 1,
-      date: holiday.endDay
-    })
+      date: holiday.endDay,
+    }),
   )
 
   return isWithinInterval(date, { start, end })

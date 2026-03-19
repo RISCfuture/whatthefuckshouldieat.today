@@ -8,15 +8,15 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 export default defineConfig({
   plugins: [
     vue(),
-    process.env.NODE_ENV == 'development' ? vueDevTools({ launchEditor: 'rubymine' }) : false
+    process.env.NODE_ENV == 'development' ? vueDevTools({ launchEditor: 'rubymine' }) : false,
   ].filter(Boolean),
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
   build: {
-    sourcemap: true
+    sourcemap: true,
   },
-  base: '/whatthefuckshouldieat.today'
+  base: '/whatthefuckshouldieat.today',
 })

@@ -7,14 +7,14 @@ import type {
   HolidayFood,
   MonthHoliday,
   MonthWeekdayHoliday,
-  WeekHoliday
+  WeekHoliday,
 } from '@/types.ts'
 import {
   dayHolidayMatches,
   dayRangeHolidayMatches,
   monthHolidayMatches,
   monthWeekdayHolidayMatches,
-  weekHolidayMatches
+  weekHolidayMatches,
 } from '@/util/dateUtil.ts'
 
 export const useHolidaysStore = defineStore('holidays', () => {
@@ -35,45 +35,45 @@ export const useHolidaysStore = defineStore('holidays', () => {
         .filter((h) => dayRangeHolidayMatches(h, date))
         .map((h) => h.holiday),
       ...weekHolidays.value.filter((h) => weekHolidayMatches(h, date)).map((h) => h.holiday),
-      ...monthHolidays.value.filter((h) => monthHolidayMatches(h, date)).map((h) => h.holiday)
+      ...monthHolidays.value.filter((h) => monthHolidayMatches(h, date)).map((h) => h.holiday),
     ]
   })
 
   function loadHolidays(data: HolidayFile) {
-    dayHolidays.value = data.days.map(([month, day, food, holiday]) => ({
+    dayHolidays.value = data.days.map(([month, day, food, holiday, region]) => ({
       month,
       day,
-      holiday: { food, holiday }
+      holiday: { food, holiday, region },
     }))
 
     monthWeekdayHolidays.value = data.monthDays.map(
-      ([month, dayOfWeek, weekInMonth, food, holiday]) => ({
+      ([month, dayOfWeek, weekInMonth, food, holiday, region]) => ({
         month,
         dayOfWeek,
         weekInMonth,
-        holiday: { food, holiday }
-      })
+        holiday: { food, holiday, region },
+      }),
     )
 
     dayRangeHolidays.value = data.ranges.map(
-      ([startMonth, startDay, endMonth, endDay, food, holiday]) => ({
+      ([startMonth, startDay, endMonth, endDay, food, holiday, region]) => ({
         startMonth,
         startDay,
         endMonth,
         endDay,
-        holiday: { food, holiday }
-      })
+        holiday: { food, holiday, region },
+      }),
     )
 
-    weekHolidays.value = data.monthWeeks.map(([month, week, food, holiday]) => ({
+    weekHolidays.value = data.monthWeeks.map(([month, week, food, holiday, region]) => ({
       month,
       week,
-      holiday: { food, holiday }
+      holiday: { food, holiday, region },
     }))
 
-    monthHolidays.value = data.months.map(([month, food, holiday]) => ({
+    monthHolidays.value = data.months.map(([month, food, holiday, region]) => ({
       month,
-      holiday: { food, holiday }
+      holiday: { food, holiday, region },
     }))
   }
 

@@ -1,9 +1,16 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["./e2e/**/*", "./support/**/*"],
-  "exclude": ["./support/component.*"],
   "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
     "isolatedModules": false,
+    "esModuleInterop": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "noEmit": true,
     "types": ["cypress"]
-  }
+  },
+  "include": ["./e2e/**/*", "./support/**/*"],
+  "exclude": ["./support/component.*"]
 }

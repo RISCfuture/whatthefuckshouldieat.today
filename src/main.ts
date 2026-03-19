@@ -7,9 +7,10 @@ import * as Sentry from '@sentry/vue'
 import { createSentryPiniaPlugin } from '@sentry/vue'
 import App from './App.vue'
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- Vue SFC default export typing
 const app = createApp(App)
 
-const sentryDSN = import.meta.env.VITE_SENTRY_DSN
+const sentryDSN = String(import.meta.env.VITE_SENTRY_DSN ?? '')
 Sentry.init({
   app,
   dsn: sentryDSN,
@@ -18,15 +19,15 @@ Sentry.init({
     Sentry.browserTracingIntegration(),
     Sentry.vueIntegration({
       tracingOptions: {
-        trackComponents: true
-      }
+        trackComponents: true,
+      },
     }),
-    Sentry.replayIntegration()
+    Sentry.replayIntegration(),
   ],
   tracesSampleRate: 1.0,
   enableLogs: true,
   replaysSessionSampleRate: 0.1,
-  replaysOnErrorSampleRate: 1.0
+  replaysOnErrorSampleRate: 1.0,
 })
 
 const pinia = createPinia()

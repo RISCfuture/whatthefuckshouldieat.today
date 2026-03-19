@@ -5,7 +5,7 @@ import type {
   HolidayFood,
   MonthHoliday,
   MonthWeekdayHoliday,
-  WeekHoliday
+  WeekHoliday,
 } from '@/types.ts'
 import {
   addDays,
@@ -15,27 +15,27 @@ import {
   setMonth,
   startOfDay,
   startOfMonth,
-  startOfWeek
+  startOfWeek,
 } from 'date-fns/fp'
 import {
   dayHolidayMatches,
   dayRangeHolidayMatches,
   monthHolidayMatches,
   monthWeekdayHolidayMatches,
-  weekHolidayMatches
+  weekHolidayMatches,
 } from '@/util/dateUtil.ts'
 import { flow } from 'lodash-es'
 
 const holiday: HolidayFood = {
   holiday: 'National Programmer Day',
-  food: 'cookies'
+  food: 'cookies',
 }
 
 describe('dayHolidayMatches', () => {
   const definition: DayHoliday = {
     month: 10,
     day: 19,
-    holiday
+    holiday,
   }
   const date = flow(setMonth(9), setDate(19), startOfDay)(new Date())
 
@@ -54,7 +54,7 @@ describe('monthWeekdayHolidayMatches', () => {
     month: 10,
     weekInMonth: 2,
     dayOfWeek: 1,
-    holiday
+    holiday,
   }
   const date = flow(setMonth(9), startOfMonth, startOfWeek, addWeeks(1), setDay(1))(new Date())
 
@@ -74,7 +74,7 @@ describe('dayRangeHolidayMatches', () => {
     startDay: 12,
     endMonth: 10,
     endDay: 19,
-    holiday
+    holiday,
   }
   const date = flow(setMonth(9), setDate(15), startOfDay)(new Date())
 
@@ -94,7 +94,7 @@ describe('weekHolidayMatches', () => {
   const definition: WeekHoliday = {
     month: 10,
     week: 2,
-    holiday
+    holiday,
   }
   const date = flow(setMonth(9), startOfMonth, startOfWeek, addWeeks(1))(new Date())
 
@@ -113,7 +113,7 @@ describe('weekHolidayMatches', () => {
 describe('monthHolidayMatches', () => {
   const definition: MonthHoliday = {
     month: 10,
-    holiday
+    holiday,
   }
   const date = flow(setMonth(9), startOfMonth, addDays(15))(new Date())
 

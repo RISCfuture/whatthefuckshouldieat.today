@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { nextTick, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { holidayFileSchema, type HolidayFood } from '@/types.ts'
 import { useHolidaysStore } from '@/stores/holidays.ts'
 import Spinner from '@/components/Spinner.vue'
@@ -9,22 +9,21 @@ import Uhoh from '@/components/Uhoh.vue'
 import NoFood from '@/components/NoFood.vue'
 
 const isLoading = ref(true)
-const error = ref<unknown | null>(null)
+const error = ref<unknown>(null)
 const food = ref<HolidayFood | null>(null)
 
 const holidaysStore = useHolidaysStore()
 
-onMounted(async () => {
+async function loadData() {
   try {
     isLoading.value = true
     const response = await fetch('/whatthefuckshouldieat.today/holidays.json')
-    const data = await response.json()
+    const data: unknown = await response.json()
     const parsed = holidayFileSchema.safeParse(data)
     if (parsed.success) {
       holidaysStore.loadHolidays(parsed.data)
-      await nextTick()
       const todaysHolidays = holidaysStore.holidaysToday
-      food.value = sample(todaysHolidays) || null
+      food.value = sample(todaysHolidays) ?? null
       isLoading.value = false
     } else {
       error.value = parsed.error
@@ -34,6 +33,10 @@ onMounted(async () => {
     error.value = err
     isLoading.value = false
   }
+}
+
+onMounted(() => {
+  void loadData()
 })
 </script>
 

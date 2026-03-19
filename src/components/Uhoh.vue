@@ -5,7 +5,7 @@ import { isError } from 'lodash-es'
 const props = defineProps<{ error: unknown }>()
 
 const errorString = computed(() =>
-  isError(props.error) ? props.error.message : String(props.error)
+  isError(props.error) ? props.error.message : String(props.error),
 )
 </script>
 
