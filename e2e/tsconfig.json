@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "bundler",
     "strict": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
     "noEmit": true,
-    "types": ["cypress", "@testing-library/cypress"]
+    "allowImportingTsExtensions": true
   },
-  "include": ["./e2e/**/*", "./support/**/*"],
-  "exclude": ["./support/component.*"]
+  "include": ["./**/*"]
 }

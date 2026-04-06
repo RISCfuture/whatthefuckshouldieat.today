@@ -1,15 +1,14 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "project": ["src/**/*.{ts,vue}"],
-  "entry": ["src/**/*.spec.ts", "vitest.setup.ts", "cypress/**/*.{ts,js}"],
+  "entry": ["src/**/*.spec.ts", "vitest.setup.ts", "e2e/**/*.{ts,js}"],
   "ignore": ["vitest.config.ts"],
   "ignoreExportsUsedInFile": true,
   "ignoreBinaries": [
     "vite",
     "run-p",
     "vitest",
-    "cypress",
-    "start-server-and-test",
+    "playwright",
     "vue-tsc",
     "eslint",
     "stylelint",
@@ -22,7 +21,6 @@
     "jiti",
     "npm-run-all2",
     "oxlint",
-    "start-server-and-test",
     "stylelint",
     "vue-eslint-parser",
     "vue-tsc"
