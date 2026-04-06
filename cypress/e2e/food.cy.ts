@@ -1,7 +1,12 @@
+import { FoodPage } from '../pages/FoodPage'
+
 describe('App', () => {
+  const foodPage = new FoodPage()
+
   it('loads holidays', () => {
-    cy.visit('/')
-    cy.contains('h1', /^You should eat a fucking/)
-    cy.contains('p', /^It’s/)
+    foodPage.open()
+
+    foodPage.getHeading().should('contain.text', 'You should eat a fucking')
+    foodPage.getHolidayDescription().should('exist')
   })
 })
