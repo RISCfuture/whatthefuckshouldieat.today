@@ -10,11 +10,15 @@ const errorString = computed(() =>
 </script>
 
 <template>
-  <div>
+  <div aria-live="assertive" role="alert">
     <h1>A fucking error occurred. Can you believe that shit?</h1>
     <h2>
       Reload or
-      <a href="https://github.com/RISCfuture/whatthefuckshouldieat.today"
+      <a
+        aria-label="Open the GitHub repository to report this issue (opens in a new tab)"
+        href="https://github.com/RISCfuture/whatthefuckshouldieat.today"
+        rel="noopener noreferrer"
+        target="_blank"
         >yell at the fucking developer</a
       >.
     </h2>

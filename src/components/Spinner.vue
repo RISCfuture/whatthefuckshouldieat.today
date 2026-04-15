@@ -1,6 +1,6 @@
 <template>
-  <div class="spinner-container">
-    <div :style="{ width: size, height: size }" class="spinner"></div>
+  <div aria-busy="true" aria-live="polite" class="spinner-container" role="status">
+    <div :style="{ width: size, height: size }" aria-label="Loading" class="spinner"></div>
   </div>
 </template>
 
@@ -33,6 +33,13 @@ defineProps<{ size: string }>()
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+    border-top-color: var(--white);
   }
 }
 </style>

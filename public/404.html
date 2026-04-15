@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>What the Fuck Should I Eat Today?</title>
+    <script>
+      // SPA redirect for GitHub Pages.
+      // Rewrites the unknown path so it survives the redirect to index.html
+      // where the SPA can recover the original location.
+      ;(function () {
+        var segmentCount = 1 // matches the project base path segment count
+        var l = window.location
+        l.replace(
+          l.protocol +
+            '//' +
+            l.hostname +
+            (l.port ? ':' + l.port : '') +
+            l.pathname
+              .split('/')
+              .slice(0, 1 + segmentCount)
+              .join('/') +
+            '/?p=/' +
+            l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+            (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash,
+        )
+      })()
+    </script>
+  </head>
+  <body>
+    <p>Redirecting&hellip;</p>
+  </body>
+</html>

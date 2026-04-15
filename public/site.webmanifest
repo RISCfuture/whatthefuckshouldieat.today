@@ -1,20 +1,31 @@
 {
-  "name": "Your Site",
-  "short_name": "Site",
+  "name": "What the Fuck Should I Eat Today?",
+  "short_name": "WTFSIE",
+  "description": "A humorous food-suggestion app that tells you what the fuck to eat today based on absurd national food holidays.",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/whatthefuckshouldieat.today/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/whatthefuckshouldieat.today/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/whatthefuckshouldieat.today/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
-  "start_url": "/",
+  "start_url": "/whatthefuckshouldieat.today/",
+  "scope": "/whatthefuckshouldieat.today/",
   "display": "standalone",
   "background_color": "#efefef",
-  "theme_color": "#3454d1"
+  "theme_color": "#3454d1",
+  "categories": ["food", "lifestyle", "entertainment"]
 }

@@ -1,12 +1,30 @@
 <!doctype html>
-<html lang="">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
 
-    <link href="/favicon.ico" rel="icon" />
-    <link href="site.webmanifest" rel="manifest" />
-    <link href="icon.png" rel="apple-touch-icon" />
-    <link color="#7d5732" href="pinned-tab.svg" rel="mask-icon" />
+    <link href="/whatthefuckshouldieat.today/favicon.ico" rel="icon" sizes="any" />
+    <link
+      href="/whatthefuckshouldieat.today/favicon-32x32.png"
+      rel="icon"
+      sizes="32x32"
+      type="image/png"
+    />
+    <link
+      href="/whatthefuckshouldieat.today/favicon-16x16.png"
+      rel="icon"
+      sizes="16x16"
+      type="image/png"
+    />
+    <link href="/whatthefuckshouldieat.today/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="/whatthefuckshouldieat.today/site.webmanifest" rel="manifest" />
+    <link
+      color="#3454d1"
+      href="/whatthefuckshouldieat.today/safari-pinned-tab.svg"
+      rel="mask-icon"
+    />
+    <meta content="/whatthefuckshouldieat.today/browserconfig.xml" name="msapplication-config" />
+    <link rel="author" href="/whatthefuckshouldieat.today/humans.txt" />
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
@@ -15,14 +33,19 @@
       rel="stylesheet"
     />
 
-    <link href="/favicon.ico" rel="icon" sizes="any" />
-    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
-    <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
-    <link href="/site.webmanifest" rel="manifest" />
-    <meta content="/browserconfig.xml" name="msapplication-config" />
-    <link color="#3454d1" href="/safari-pinned-tab.svg" rel="mask-icon" />
-
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="author" content="Tim Morgan" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Permissions-Policy"
+      content="camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    />
+
+    <!-- Apple PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="WTFSIE" />
 
     <!-- Primary Meta Tags -->
     <title>What the Fuck Should I Eat Today?</title>
@@ -41,7 +64,13 @@
       property="og:description"
       content="A website that helps you decide what the fuck you should eat today."
     />
-    <meta property="og:image" content="/apple-touch-icon.png" />
+    <meta
+      property="og:image"
+      content="https://whatthefuckshouldieat.today/whatthefuckshouldieat.today/apple-touch-icon.png"
+    />
+    <meta property="og:image:width" content="180" />
+    <meta property="og:image:height" content="180" />
+    <meta property="og:image:alt" content="What the Fuck Should I Eat Today? app icon" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary" />
@@ -51,10 +80,37 @@
       property="twitter:description"
       content="A website that helps you decide what the fuck you should eat today."
     />
-    <meta property="twitter:image" content="/apple-touch-icon.png" />
+    <meta
+      property="twitter:image"
+      content="https://whatthefuckshouldieat.today/whatthefuckshouldieat.today/apple-touch-icon.png"
+    />
+    <meta property="twitter:image:alt" content="What the Fuck Should I Eat Today? app icon" />
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "What the Fuck Should I Eat Today?",
+        "url": "https://whatthefuckshouldieat.today/",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript and a modern browser.",
+        "description": "Can't decide what the fuck to eat today? This humorous web app picks a food for you based on which absurd national food holiday it happens to be.",
+        "author": {
+          "@type": "Person",
+          "name": "Tim Morgan"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
   </head>
   <body>
-    <main />
+    <main></main>
     <script src="/src/main.ts" type="module"></script>
   </body>
 </html>
