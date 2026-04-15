@@ -1,4 +1,9 @@
 import 'normalize.css'
+import '@fontsource/noticia-text/400.css'
+import '@fontsource/noticia-text/400-italic.css'
+import '@fontsource/noticia-text/700.css'
+import '@fontsource/noticia-text/700-italic.css'
+import '@fontsource/poetsen-one/400.css'
 import './assets/main.css'
 
 import { createApp } from 'vue'

@@ -1,8 +1,10 @@
 {
-  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "$schema": "https://unpkg.com/knip@6/schema.json",
   "project": ["src/**/*.{ts,vue}"],
-  "entry": ["src/**/*.spec.ts", "vitest.setup.ts", "e2e/**/*.{ts,js}"],
-  "ignore": ["vitest.config.ts"],
+  "entry": ["src/main.ts", "src/**/*.spec.ts", "vitest.setup.ts", "e2e/**/*.{ts,js}"],
+  "ignore": ["vitest.config.ts", "vite.config.ts"],
+  "vite": false,
+  "vitest": false,
   "ignoreExportsUsedInFile": true,
   "ignoreBinaries": [
     "vite",
@@ -23,7 +25,11 @@
     "oxlint",
     "stylelint",
     "vue-eslint-parser",
-    "vue-tsc"
+    "vue-tsc",
+    "@vitejs/plugin-vue",
+    "jsdom",
+    "vite-plugin-csp-guard",
+    "vite-plugin-vue-devtools"
   ],
   "rules": {
     "exports": "warn"
