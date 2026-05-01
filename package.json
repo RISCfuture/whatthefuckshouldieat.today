@@ -26,6 +26,7 @@
     "@fontsource/noticia-text": "^5.2.8",
     "@fontsource/poetsen-one": "^5.2.7",
     "@sentry/vue": "^10.45.0",
+    "@vueuse/core": "^14.3.0",
     "date-fns": "^4.1.0",
     "lodash-es": "^4.17.23",
     "normalize.css": "^8.0.1",

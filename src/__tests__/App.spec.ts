@@ -61,11 +61,7 @@ const mockHolidays: HolidayFile = {
   ],
 }
 
-globalThis.fetch = vi.fn(() =>
-  Promise.resolve({
-    json: () => Promise.resolve(mockHolidays),
-  }),
-) as unknown as typeof fetch
+globalThis.fetch = vi.fn(() => Promise.resolve(Response.json(mockHolidays))) as unknown as typeof fetch
 
 describe('App.vue', () => {
   it('loads foods and selects one at random', async () => {
