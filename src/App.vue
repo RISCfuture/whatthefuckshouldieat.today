@@ -13,7 +13,9 @@ const food = ref<HolidayFood | null>(null)
 const validationError = ref<unknown>(null)
 const holidaysStore = useHolidaysStore()
 
-const { isFetching, error, data } = useFetch('/whatthefuckshouldieat.today/holidays.json').json<unknown>()
+const { isFetching, error, data } = useFetch(
+  '/whatthefuckshouldieat.today/holidays.json',
+).json<unknown>()
 
 watch(data, (raw) => {
   if (raw === null) return

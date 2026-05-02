@@ -61,7 +61,7 @@ const mockHolidays: HolidayFile = {
   ],
 }
 
-globalThis.fetch = vi.fn(() => Promise.resolve(Response.json(mockHolidays))) as unknown as typeof fetch
+globalThis.fetch = vi.fn(() => Promise.resolve(Response.json(mockHolidays)))
 
 describe('App.vue', () => {
   it('loads foods and selects one at random', async () => {
@@ -77,7 +77,7 @@ describe('App.vue', () => {
     })
 
     // Should always find a food since mock data guarantees today's date has holidays
-    expect(await screen.findByText(/^You should eat a fucking/)).toBeTruthy()
-    expect(await screen.findByText(/It’s/)).toBeTruthy()
+    expect(await screen.findByText(/^You should eat a fucking/u)).toBeTruthy()
+    expect(await screen.findByText(/It’s/u)).toBeTruthy()
   })
 })

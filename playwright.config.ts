@@ -16,9 +16,10 @@ export default defineConfig({
   reporter: 'html',
   use: {
     actionTimeout: 0,
-    baseURL: 'http://localhost:4173/whatthefuckshouldieat.today',
+    baseURL: 'http://localhost:4178/whatthefuckshouldieat.today',
     trace: 'on-first-retry',
     headless: !!process.env.CI,
+    serviceWorkers: 'block',
   },
 
   projects: [
@@ -43,8 +44,8 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'yarn build && yarn preview',
-    port: 4173,
-    reuseExistingServer: !process.env.CI,
+    command: 'yarn build && yarn preview --port 4178 --strictPort',
+    port: 4178,
+    reuseExistingServer: false,
   },
 })

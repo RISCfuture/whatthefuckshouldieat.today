@@ -2,7 +2,6 @@
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "project": ["src/**/*.{ts,vue}"],
   "entry": ["src/main.ts", "src/**/*.spec.ts", "vitest.setup.ts", "e2e/**/*.{ts,js}"],
-  "ignore": ["vitest.config.ts", "vite.config.ts"],
   "vite": false,
   "vitest": false,
   "ignoreExportsUsedInFile": true,
@@ -29,6 +28,7 @@
     "@vitejs/plugin-vue",
     "jsdom",
     "vite-plugin-csp-guard",
+    "vite-plugin-pwa",
     "vite-plugin-vue-devtools"
   ],
   "rules": {
