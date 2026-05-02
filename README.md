@@ -1,5 +1,9 @@
 # whatthefuckshouldieat.today
 
+[![CI](https://github.com/RISCfuture/whatthefuckshouldieat.today/actions/workflows/ci.yml/badge.svg)](https://github.com/RISCfuture/whatthefuckshouldieat.today/actions/workflows/ci.yml)
+[![Deploy](https://github.com/RISCfuture/whatthefuckshouldieat.today/actions/workflows/deploy.yml/badge.svg)](https://github.com/RISCfuture/whatthefuckshouldieat.today/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
