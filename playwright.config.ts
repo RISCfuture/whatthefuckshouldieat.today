@@ -44,7 +44,7 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'yarn build && yarn preview --port 4178 --strictPort',
+    command: 'pnpm run build && pnpm run preview --port 4178 --strictPort',
     port: 4178,
     reuseExistingServer: false,
   },
