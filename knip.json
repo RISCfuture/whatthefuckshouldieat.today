@@ -5,28 +5,8 @@
   "vite": false,
   "vitest": false,
   "ignoreExportsUsedInFile": true,
-  "ignoreBinaries": [
-    "vite",
-    "run-p",
-    "vitest",
-    "playwright",
-    "vue-tsc",
-    "eslint",
-    "stylelint",
-    "oxlint",
-    "knip",
-    "prettier"
-  ],
   "ignoreDependencies": [
-    "eslint",
-    "jiti",
-    "npm-run-all2",
-    "oxlint",
-    "stylelint",
-    "vue-eslint-parser",
-    "vue-tsc",
     "@vitejs/plugin-vue",
-    "jsdom",
     "vite-plugin-csp-guard",
     "vite-plugin-pwa",
     "vite-plugin-vue-devtools"
