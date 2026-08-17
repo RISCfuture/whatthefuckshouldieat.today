@@ -32,6 +32,38 @@
 
   <body>
     <main>
+      <!-- An empty plate, flanked by cutlery that gives up waiting. Decorative
+           only: the headline, lede, and link below carry the whole message. -->
+      <svg class="scene" viewBox="0 0 480 290" aria-hidden="true" focusable="false">
+        <defs>
+          <clipPath id="plate-well">
+            <circle cx="240" cy="140" r="92" />
+          </clipPath>
+        </defs>
+
+        <circle class="plate-shadow" cx="248" cy="150" r="96" />
+
+        <path
+          class="cutlery fork"
+          d="M 48 46 Q 48 40 51.5 40 Q 55 40 55 46 L 55 78 L 66.5 78 L 66.5 46 Q 66.5 40 70 40 Q 73.5 40 73.5 46 L 73.5 78 L 85 78 L 85 46 Q 85 40 88.5 40 Q 92 40 92 46 L 92 106 Q 92 118 78 124 L 77 130 L 77 236 Q 77 243 70 243 Q 63 243 63 236 L 63 130 L 62 124 Q 48 118 48 106 Z"
+        />
+        <path
+          class="cutlery knife"
+          d="M 403 236 Q 403 243 410 243 Q 417 243 417 236 L 417 136 Q 426 120 427 98 Q 428 68 417 48 Q 414 42 410 49 Q 405 60 405 80 L 405 130 Q 403 132 403 138 Z"
+        />
+
+        <circle class="plate" cx="240" cy="140" r="96" />
+        <circle class="plate-rim" cx="240" cy="140" r="68" />
+
+        <g clip-path="url(#plate-well)">
+          <rect class="gleam" x="-60" y="-40" width="46" height="360" rx="23" />
+        </g>
+
+        <g transform="rotate(-20 272 168)">
+          <ellipse class="crumb" cx="272" cy="168" rx="8" ry="5.5" />
+        </g>
+      </svg>
+
       <h1>
         <span class="code">404</span>
         <span class="label">Page not found</span>

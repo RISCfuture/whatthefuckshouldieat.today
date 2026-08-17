@@ -11,6 +11,16 @@
   --button-background-color: #d1345b;
   --button-background-hover-color: #a72948;
   --focus-color: #34d1bf;
+
+  /* Scene colors, borrowed from the icon art: a thick dark outline over flat
+     fills, with the teal and yellow accents doing the detail work. */
+  --outline-color: #2c3937;
+  --plate-color: #efefef;
+  --plate-rim-color: #34d1bf;
+  --plate-shadow-color: rgb(7 7 7 / 24%);
+  --cutlery-color: #dcdfe1;
+  --gleam-color: #fff;
+  --crumb-color: #f6cb45;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,6 +31,8 @@
     --button-background-color: #3454d1;
     --button-background-hover-color: #2843a7;
     --focus-color: #34d1bf;
+    --plate-shadow-color: rgb(52 209 191 / 18%);
+    --cutlery-color: #c9ced1;
   }
 }
 
@@ -44,8 +56,11 @@ body {
 }
 
 main {
+  /* Auto block margins centre the page but collapse when the scene makes the
+     content taller than the viewport, so nothing is clipped off the top. */
   width: 100%;
   max-width: 800px;
+  margin-block: auto;
 }
 
 h1 {
@@ -90,7 +105,184 @@ h1 {
   outline-offset: 3px;
 }
 
+.scene {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 0 auto 28px;
+  animation: scene-arrive 900ms ease-out both;
+}
+
+.plate-shadow {
+  fill: var(--plate-shadow-color);
+}
+
+.plate {
+  fill: var(--plate-color);
+  stroke: var(--outline-color);
+  stroke-width: 8;
+}
+
+.plate-rim {
+  fill: none;
+  stroke: var(--plate-rim-color);
+  stroke-width: 5;
+}
+
+.cutlery {
+  fill: var(--cutlery-color);
+  stroke: var(--outline-color);
+  stroke-width: 6;
+  stroke-linejoin: round;
+  transform-box: fill-box;
+
+  /* Pivot at the bottom of the handle, the way a resting utensil swings. */
+  transform-origin: 50% 97%;
+}
+
+.fork {
+  animation: fork-slump 1300ms ease-in-out 2400ms both;
+}
+
+.knife {
+  animation: knife-slump 1300ms ease-in-out 3600ms both;
+}
+
+.crumb {
+  fill: var(--crumb-color);
+  stroke: var(--outline-color);
+  stroke-width: 3;
+  transform-box: fill-box;
+  animation: crumb-settle 1100ms ease-out 1800ms both;
+}
+
+/* A sheen that drifts across the porcelain and nothing else. */
+.gleam {
+  fill: var(--gleam-color);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: gleam-sweep 11s ease-in-out 1200ms infinite;
+}
+
+@keyframes scene-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fork-slump {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  45% {
+    transform: rotate(-1deg);
+  }
+
+  100% {
+    transform: rotate(-3.5deg);
+  }
+}
+
+@keyframes knife-slump {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  45% {
+    transform: rotate(1.2deg);
+  }
+
+  100% {
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes crumb-settle {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(1px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes gleam-sweep {
+  0%,
+  10% {
+    opacity: 0;
+    transform: translateX(0) rotate(16deg);
+  }
+
+  22%,
+  64% {
+    opacity: 0.5;
+  }
+
+  76%,
+  100% {
+    opacity: 0;
+    transform: translateX(400px) rotate(16deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* The resting end state: plate present, cutlery already splayed, crumb
+     landed, and the sheen parked on the porcelain as a plain highlight. */
+  .scene,
+  .fork,
+  .knife,
+  .crumb,
+  .gleam {
+    animation: none;
+  }
+
+  .scene {
+    opacity: 1;
+    transform: none;
+  }
+
+  .fork {
+    transform: rotate(-3.5deg);
+  }
+
+  .knife {
+    transform: rotate(4deg);
+  }
+
+  .crumb {
+    opacity: 1;
+    transform: none;
+  }
+
+  .gleam {
+    opacity: 0.28;
+    transform: translateX(240px) rotate(16deg);
+  }
+}
+
 @media (width <= 700px) {
+  .scene {
+    max-width: 260px;
+    margin-bottom: 22px;
+  }
+
   .code {
     font-size: 48px;
   }

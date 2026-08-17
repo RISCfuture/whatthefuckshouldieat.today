@@ -16,7 +16,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit",
     "lint:eslint": "eslint .",
-    "lint:stylelint": "stylelint \"src/**/*.{css,vue}\"",
+    "lint:stylelint": "stylelint \"src/**/*.{css,vue}\" \"public/*.css\"",
     "lint:oxlint": "oxlint -c oxlintrc.json src",
     "lint:knip": "knip",
     "lint": "pnpm run lint:eslint && pnpm run lint:stylelint && pnpm run lint:oxlint && pnpm run lint:knip",
