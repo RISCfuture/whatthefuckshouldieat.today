@@ -10,15 +10,17 @@ import { VitePWA } from 'vite-plugin-pwa'
 export default defineConfig(({ command }) => ({
   plugins: [
     vue(),
-    process.env.NODE_ENV == 'development' ? vueDevTools({ launchEditor: 'rubymine' }) : false,
+    command === 'serve' && vueDevTools({ launchEditor: process.env.VITE_LAUNCH_EDITOR }),
     VitePWA({
       registerType: 'autoUpdate',
       manifest: false,
-      injectRegister: 'script',
+      injectRegister: false,
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest,woff,woff2}'],
-        navigateFallback: 'index.html',
-        navigateFallbackDenylist: [/^\/api/, /\.map$/],
+        // This site has no client-side router, so an unknown path is a real 404.
+        // vite-plugin-pwa otherwise defaults this to index.html, which makes the
+        // service worker answer every unknown path with the home page.
+        navigateFallback: undefined,
         cleanupOutdatedCaches: true,
         clientsClaim: true,
         skipWaiting: true,
@@ -50,7 +52,7 @@ export default defineConfig(({ command }) => ({
     },
   },
   build: {
-    sourcemap: true,
+    sourcemap: 'hidden',
   },
-  base: '/whatthefuckshouldieat.today',
+  base: '/whatthefuckshouldieat.today/',
 }))

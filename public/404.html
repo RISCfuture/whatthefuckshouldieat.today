@@ -3,33 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Page Not Found — What the Fuck Should I Eat Today?</title>
+    <meta name="description" content="There is no page at this address." />
     <meta name="robots" content="noindex" />
-    <title>What the Fuck Should I Eat Today?</title>
-    <script>
-      // SPA redirect for GitHub Pages.
-      // Rewrites the unknown path so it survives the redirect to index.html
-      // where the SPA can recover the original location.
-      ;(function () {
-        var segmentCount = 1 // matches the project base path segment count
-        var l = window.location
-        l.replace(
-          l.protocol +
-            '//' +
-            l.hostname +
-            (l.port ? ':' + l.port : '') +
-            l.pathname
-              .split('/')
-              .slice(0, 1 + segmentCount)
-              .join('/') +
-            '/?p=/' +
-            l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
-            (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-            l.hash,
-        )
-      })()
-    </script>
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#3454d1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#3454d1" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" href="/whatthefuckshouldieat.today/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/whatthefuckshouldieat.today/apple-touch-icon.png"
+    />
+    <link
+      rel="mask-icon"
+      href="/whatthefuckshouldieat.today/safari-pinned-tab.svg"
+      color="#3454d1"
+    />
+
+    <!-- The zone's CSP grants 'unsafe-inline' to `style-src-attr` alone, so a
+         `<style>` element here would be blocked and the page would render
+         unstyled. The stylesheet is a sibling file that Vite copies out of
+         `public/` under a stable, unhashed name. -->
+    <link rel="stylesheet" href="/whatthefuckshouldieat.today/404.css" />
   </head>
+
   <body>
-    <p>Redirecting&hellip;</p>
+    <main>
+      <h1>
+        <span class="code">404</span>
+        <span class="label">Page not found</span>
+      </h1>
+
+      <p class="lede">There’s not a fucking thing to eat at this address.</p>
+
+      <p>
+        <a class="button" href="/whatthefuckshouldieat.today/">Back to today’s food</a>
+      </p>
+    </main>
   </body>
 </html>

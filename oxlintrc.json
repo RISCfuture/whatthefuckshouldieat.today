@@ -24,6 +24,7 @@
     "no-magic-numbers": "off",
     "sort-keys": "off",
     "no-ternary": "off",
+    "capitalized-comments": "off",
     "no-async-await": "off",
     "func-style": "off",
     "id-length": "off",

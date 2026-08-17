@@ -1,0 +1,110 @@
+/* Styles for `404.html`. Vite copies both files out of `public/` verbatim, so
+   they share nothing with the app bundle and restate the palette, type scale,
+   and breakpoint from `src/assets/styles/`. Poetsen One is bundled under a
+   hashed filename that a static page cannot reference, so the stack falls back
+   to a system sans-serif. */
+
+:root {
+  --background: #3454d1;
+  --text-color: #efefef;
+  --muted-color: #34d1bf;
+  --button-background-color: #d1345b;
+  --button-background-hover-color: #a72948;
+  --focus-color: #34d1bf;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #070707;
+    --text-color: #efefef;
+    --muted-color: #34d1bf;
+    --button-background-color: #3454d1;
+    --button-background-hover-color: #2843a7;
+    --focus-color: #34d1bf;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 40px 5vw;
+  font-family: 'Poetsen One', Verdana, Geneva, sans-serif;
+  font-weight: normal;
+  color: var(--text-color);
+  text-align: center;
+  background-color: var(--background);
+}
+
+main {
+  width: 100%;
+  max-width: 800px;
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 0 40px;
+  font-weight: normal;
+}
+
+.code {
+  font-size: 128px;
+  line-height: 1;
+}
+
+.label {
+  font-size: 36px;
+}
+
+.lede {
+  margin: 0 0 40px;
+  font-size: 24px;
+  color: var(--muted-color);
+}
+
+.button {
+  display: inline-block;
+  padding: 20px;
+  font-size: 36px;
+  color: var(--text-color);
+  text-decoration: none;
+  background-color: var(--button-background-color);
+  border-radius: 20px;
+}
+
+.button:hover {
+  background-color: var(--button-background-hover-color);
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 3px;
+}
+
+@media (width <= 700px) {
+  .code {
+    font-size: 48px;
+  }
+
+  .label {
+    font-size: 24px;
+  }
+
+  .lede {
+    font-size: 18px;
+  }
+
+  .button {
+    padding: 15px;
+    font-size: 24px;
+  }
+}

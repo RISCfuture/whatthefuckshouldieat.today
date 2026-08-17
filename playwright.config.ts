@@ -16,7 +16,7 @@ export default defineConfig({
   reporter: 'html',
   use: {
     actionTimeout: 0,
-    baseURL: 'http://localhost:4178/whatthefuckshouldieat.today',
+    baseURL: 'http://localhost:4178/whatthefuckshouldieat.today/',
     trace: 'on-first-retry',
     headless: !!process.env.CI,
     serviceWorkers: 'block',
