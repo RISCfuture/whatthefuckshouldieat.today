@@ -12,6 +12,6 @@
     "vite-plugin-vue-devtools"
   ],
   "rules": {
-    "exports": "warn"
+    "exports": "error"
   }
 }
