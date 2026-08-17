@@ -20,7 +20,8 @@
     "lint:oxlint": "oxlint -c oxlintrc.json src",
     "lint:knip": "knip",
     "lint": "pnpm run lint:eslint && pnpm run lint:stylelint && pnpm run lint:oxlint && pnpm run lint:knip",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@fontsource/noticia-text": "^5.2.8",
