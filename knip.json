@@ -5,12 +5,6 @@
   "vite": false,
   "vitest": false,
   "ignoreExportsUsedInFile": true,
-  "ignoreDependencies": [
-    "@vitejs/plugin-vue",
-    "vite-plugin-csp-guard",
-    "vite-plugin-pwa",
-    "vite-plugin-vue-devtools"
-  ],
   "rules": {
     "exports": "error"
   }
