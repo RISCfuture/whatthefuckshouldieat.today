@@ -175,9 +175,6 @@ importers:
       '@sentry/vue':
         specifier: ^10.70.0
         version: 10.74.0(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@6.0.3)(vue@3.5.42(typescript@6.0.3)))(vue@3.5.42(typescript@6.0.3))
-      '@vueuse/core':
-        specifier: ^14.4.0
-        version: 14.4.0(vue@3.5.42(typescript@6.0.3))
       date-fns:
         specifier: ^4.4.0
         version: 4.4.0
@@ -1794,9 +1791,6 @@ packages:
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
 
-  '@types/web-bluetooth@0.0.21':
-    resolution: {integrity: sha512-oIQLCGWtcFZy2JW77j9k8nHzAOpqMHLQejDA48XXMWH6tjCQHz5RCFz1bzsmROyL6PUm+LLnUiI4BCn221inxA==}
-
   '@typescript-eslint/eslint-plugin@8.70.0':
     resolution: {integrity: sha512-/v8HZt6RlyIZxB3ntehELOcUcfxKPVGWXnQdJuHRmzrqgF8nQypcC/oxGW+Ot4VGKDq81XugPKxx0n5PBtf9PA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -1975,19 +1969,6 @@ packages:
     peerDependenciesMeta:
       '@vue/server-renderer':
         optional: true
-
-  '@vueuse/core@14.4.0':
-    resolution: {integrity: sha512-X4WHz1HlCzCBoYXesUkifzzWBAcZgXG8Fi5iNPQg/epdzOB3gu8Fawj3hvuwYR1nGcXGnvxwYYcUC/71++svtQ==}
-    peerDependencies:
-      vue: ^3.5.0
-
-  '@vueuse/metadata@14.4.0':
-    resolution: {integrity: sha512-swx/255R6JyHZFJhx845iz5CRWDZdCfvkZOpACWc5+c5WHcG24mv8gUT1WIdFQaHt6dq79rvILd9QnCWiyVm9g==}
-
-  '@vueuse/shared@14.4.0':
-    resolution: {integrity: sha512-JRgY90Sz8DDtPMsaDflvPMp9xYk69JZAmbuDvAquUVXKr2gEjqtzGNTTthLfckH0BzBqvnu31gb4a8TGLRe79g==}
-    peerDependencies:
-      vue: ^3.5.0
 
   abbrev@5.0.0:
     resolution: {integrity: sha512-/XrFJgzQQQHpti1raDJC6m4ws6aNktmjBlhk8Fdlk7LwCEuDoieEJJY9OFHjfiFJFFRM2tK+Ky/IsfbbmlMu1w==}
@@ -5541,8 +5522,6 @@ snapshots:
 
   '@types/trusted-types@2.0.7': {}
 
-  '@types/web-bluetooth@0.0.21': {}
-
   '@typescript-eslint/eslint-plugin@8.70.0(@typescript-eslint/parser@8.70.0(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.10.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
       '@eslint-community/regexpp': 4.12.2
@@ -5815,19 +5794,6 @@ snapshots:
       vue-component-type-helpers: 3.3.11
     optionalDependencies:
       '@vue/server-renderer': 3.5.42
-
-  '@vueuse/core@14.4.0(vue@3.5.42(typescript@6.0.3))':
-    dependencies:
-      '@types/web-bluetooth': 0.0.21
-      '@vueuse/metadata': 14.4.0
-      '@vueuse/shared': 14.4.0(vue@3.5.42(typescript@6.0.3))
-      vue: 3.5.42(typescript@6.0.3)
-
-  '@vueuse/metadata@14.4.0': {}
-
-  '@vueuse/shared@14.4.0(vue@3.5.42(typescript@6.0.3))':
-    dependencies:
-      vue: 3.5.42(typescript@6.0.3)
 
   abbrev@5.0.0: {}
 

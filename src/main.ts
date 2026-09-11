@@ -29,7 +29,6 @@ Sentry.init({
         trackComponents: true,
       },
     }),
-    Sentry.replayIntegration({ maskAllText: true, blockAllMedia: true }),
   ],
   tracesSampleRate: 1.0,
   enableLogs: true,
@@ -62,6 +61,34 @@ Sentry.init({
 })
 
 /**
+ * Loads the session replay chunk and attaches it to the Sentry client.
+ *
+ * A failed load costs replays and nothing else, so the rejection is logged
+ * rather than left to surface as an unhandled error.
+ */
+function attachSessionReplay(): void {
+  import('./sentryReplay.ts')
+    .then(({ sessionReplayIntegration }) => {
+      Sentry.addIntegration(sessionReplayIntegration())
+    })
+    .catch((error: unknown) => {
+      Sentry.logger.warn('Session replay failed to load', {
+        reason: error instanceof Error ? error.message : String(error),
+      })
+    })
+}
+
+/**
+ * Schedules session replay for the browser's first idle moment, keeping the
+ * recorder — the app's largest dependency — off the critical path.
+ */
+function addSessionReplayWhenIdle(): void {
+  if (typeof window.requestIdleCallback === 'function')
+    window.requestIdleCallback(attachSessionReplay)
+  else window.addEventListener('load', attachSessionReplay)
+}
+
+/**
  * Installs the Workbox service worker that backs offline use.
  *
  * A failed registration costs offline caching and nothing else, so the
@@ -87,6 +114,8 @@ pinia.use(createSentryPiniaPlugin())
 app.use(pinia)
 
 app.mount('main')
+
+if (sentryDSN) addSessionReplayWhenIdle()
 
 // Only a production build emits `sw.js`.
 if (import.meta.env.PROD) registerServiceWorker()

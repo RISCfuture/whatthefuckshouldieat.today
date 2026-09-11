@@ -1,39 +1,22 @@
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue'
-import { useFetch } from '@vueuse/core'
-import { holidayFileSchema, type HolidayFood } from '@/types.ts'
-import { useHolidaysStore } from '@/stores/holidays.ts'
-import Spinner from '@/components/Spinner.vue'
-import Food from '@/components/Food.vue'
 import { sample } from 'lodash-es'
+import holidayFile from '@/data/holidays.json'
+import { holidayFileSchema } from '@/types.ts'
+import { useHolidaysStore } from '@/stores/holidays.ts'
+import Food from '@/components/Food.vue'
 import Uhoh from '@/components/Uhoh.vue'
 import NoFood from '@/components/NoFood.vue'
 
-const food = ref<HolidayFood | null>(null)
-const validationError = ref<unknown>(null)
 const holidaysStore = useHolidaysStore()
 
-const { isFetching, error, data } = useFetch(
-  '/whatthefuckshouldieat.today/holidays.json',
-).json<unknown>()
+const holidays = holidayFileSchema.safeParse(holidayFile)
+if (holidays.success) holidaysStore.loadHolidays(holidays.data)
 
-watch(data, (raw) => {
-  if (raw === null) return
-  const parsed = holidayFileSchema.safeParse(raw)
-  if (parsed.success) {
-    holidaysStore.loadHolidays(parsed.data)
-    food.value = sample(holidaysStore.holidaysToday) ?? null
-  } else {
-    validationError.value = parsed.error
-  }
-})
-
-const displayError = computed<unknown>(() => error.value ?? validationError.value)
+const food = holidays.success ? (sample(holidaysStore.holidaysToday) ?? null) : null
 </script>
 
 <template>
   <Food v-if="food" :food="food" />
-  <Uhoh v-else-if="displayError" :error="displayError" />
-  <Spinner v-else-if="isFetching" size="10rem" />
+  <Uhoh v-else-if="!holidays.success" :error="holidays.error" />
   <NoFood v-else />
 </template>

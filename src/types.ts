@@ -1,4 +1,4 @@
-import { z } from 'zod/v4'
+import * as z from 'zod/v4-mini'
 
 export interface HolidayFood {
   food: string
@@ -38,12 +38,12 @@ export interface MonthHoliday {
   holiday: HolidayFood
 }
 
-const monthSchema = z.number().int().min(1).max(12)
-const daySchema = z.number().int().min(1).max(31)
-const weekSchema = z.number().int().min(1).max(6)
-const weekdaySchema = z.number().int().min(0).max(7)
-const stringSchema = z.string().min(1)
-const optionalSchema = z.string().min(1).optional()
+const monthSchema = z.int().check(z.minimum(1), z.maximum(12))
+const daySchema = z.int().check(z.minimum(1), z.maximum(31))
+const weekSchema = z.int().check(z.minimum(1), z.maximum(6))
+const weekdaySchema = z.int().check(z.minimum(0), z.maximum(7))
+const stringSchema = z.string().check(z.minLength(1))
+const optionalSchema = z.optional(z.string().check(z.minLength(1)))
 const dayHolidays = z.tuple([monthSchema, daySchema, stringSchema, stringSchema, optionalSchema])
 const monthWeekdayHolidays = z.tuple([
   monthSchema,

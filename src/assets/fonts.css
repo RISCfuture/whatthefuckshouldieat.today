@@ -1,0 +1,28 @@
+/*
+ * Metric-matched fallback faces.
+ *
+ * Each face wraps a widely installed system font and overrides its metrics to
+ * match the webfont it stands in for, so the `font-display: swap` handoff
+ * swaps glyphs without reflowing the page. The descriptors are derived from
+ * the shipped woff2 files and the fallbacks' own tables: `size-adjust` is the
+ * ratio of average lowercase advance widths, and the vertical overrides are
+ * the webfont's hhea metrics scaled by that ratio.
+ */
+
+@font-face {
+  font-family: 'Noticia Text Fallback';
+  src: local('Georgia'), local('Times New Roman');
+  size-adjust: 107.596%;
+  ascent-override: 99.929%;
+  descent-override: 26.911%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Poetsen One Fallback';
+  src: local('Arial'), local('Helvetica');
+  size-adjust: 106.696%;
+  ascent-override: 93.724%;
+  descent-override: 18.745%;
+  line-gap-override: 0%;
+}
